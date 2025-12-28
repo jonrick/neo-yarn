@@ -31,7 +31,7 @@ export const GameRoom: React.FC = () => {
                             onJoin={actions.joinRoom}
                             onStart={actions.startGame}
                             isConnected={isConnected}
-                            hasJoined={!!myPlayerId} // TODO: Improve hasJoined check logic if we want to separate "Connect" vs "Join Room"
+                            hasJoined={gameState.players.some(p => p.id === myPlayerId)}
                             playerCount={gameState.players.length}
                         />
                     )}
