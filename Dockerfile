@@ -26,6 +26,9 @@ FROM node:20-slim
 
 WORKDIR /app
 
+# Install build dependencies for native modules (better-sqlite3)
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+
 # Copy Server package.json
 COPY server/package*.json ./server/
 
