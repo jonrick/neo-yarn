@@ -12,7 +12,7 @@ COPY client/tailwind.config.js ./
 COPY client/postcss.config.js ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # Copy Client source code
 COPY client/src ./src
@@ -31,7 +31,7 @@ COPY server/package*.json ./server/
 
 # Install Server dependencies (production only)
 WORKDIR /app/server
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Copy Server source code
 COPY server/index.js ./
