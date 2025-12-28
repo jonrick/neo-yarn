@@ -1,5 +1,5 @@
 # Stage 1: Build the Client
-FROM node:20 AS client-builder
+FROM node:20-slim AS client-builder
 
 WORKDIR /app/client
 
@@ -22,7 +22,7 @@ RUN npm run build
 
 
 # Stage 2: Production Server
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
